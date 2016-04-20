@@ -16,7 +16,7 @@ buildscript {
 }
 
 apply plugin: 'java'
-apply plugin: 'groovy'
+
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
 
@@ -75,5 +75,7 @@ dependencies {
     testCompile("junit:junit:4.12")
     testCompile("org.spockframework:spock-core:1.0-groovy-2.4")
     testCompile("org.spockframework:spock-spring:1.0-groovy-2.4")
+
+    compile("org.springframework.boot:spring-boot-devtools")
 }
 
