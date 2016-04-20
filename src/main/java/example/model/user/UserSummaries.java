@@ -1,8 +1,5 @@
 package example.model.user;
 
-import org.apache.commons.lang.builder.ToStringBuilder;
-import org.apache.commons.lang.builder.ToStringStyle;
-
 import java.util.Collections;
 import java.util.List;
 
@@ -20,8 +17,4 @@ public class UserSummaries {
         return Collections.unmodifiableList(values);
     }
 
-    @Override
-    public String toString() {
-        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
-    }
 }
