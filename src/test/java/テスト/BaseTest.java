@@ -1,6 +1,5 @@
 package テスト;
 
-
 import com.jayway.restassured.RestAssured;
 import example.Application;
 import org.junit.Before;
