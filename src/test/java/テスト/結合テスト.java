@@ -6,6 +6,7 @@ import org.apache.http.HttpStatus;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.TestRestTemplate;
@@ -31,7 +32,6 @@ public class 結合テスト {
     public void setUp() {
         RestAssured.port = port; // http://localhost:PORT を使う
     }
-
 
     @Test
     public void 単純なGET() {
