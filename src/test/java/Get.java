@@ -10,9 +10,9 @@ public class Get extends BaseForAll {
         given().
                 log().all().
                 param("name", "masuda").
-                when().
+        when().
                 get("/greeting").
-                then().
+        then().
                 log().all().
                 statusCode(HttpStatus.SC_OK).
                 body("content", equalTo("Hello, masuda!"))
