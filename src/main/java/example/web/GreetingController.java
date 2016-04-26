@@ -1,6 +1,6 @@
 package example.web;
 
-import example.model.Greeting;
+import example.model.greeting.Greeting;
 import example.service.GreetingService;
 import example.viewmodel.GreetingResponse;
 import example.viewmodel.GreetingRequest;
@@ -20,13 +20,19 @@ public class GreetingController {
     @RequestMapping("params")
     public GreetingResponse greeting(@RequestParam(value="name") String name) {
         if(name.isEmpty()) throw new IllegalArgumentException("exception");
-        Greeting greeting = greetingService.greetTo(name);
-        return new GreetingResponse(greeting);
+        return generateGreetingResponse(name);
     }
 
     @RequestMapping("object")
     public GreetingResponse greetingOfJson(@RequestBody GreetingRequest request) {
-        Greeting greeting =  greetingService.greetTo(request.name());
+        String name = request.name();
+        return generateGreetingResponse(name);
+    }
+
+    private GreetingResponse generateGreetingResponse(@RequestParam(value = "name") String name) {
+        Greeting greeting = greetingService.greetTo(name);
+        greetingService.recordRequest(greeting);
+        greetingService.printList();
         return new GreetingResponse(greeting);
     }
 }

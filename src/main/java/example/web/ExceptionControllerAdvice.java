@@ -18,6 +18,7 @@ public class ExceptionControllerAdvice {
     @ResponseStatus(value = HttpStatus.BAD_REQUEST)
     @ResponseBody
     public MissingError missing(IllegalArgumentException exception) {
+        logger.error("例外を検知しました");
         logger.error(exception.toString());
         return new MissingError();
     }

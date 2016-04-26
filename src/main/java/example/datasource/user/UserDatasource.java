@@ -4,9 +4,7 @@ import example.model.user.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-/**
- * Created by haljik on 15/06/04.
- */
+
 @Repository
 public class UserDatasource implements UserRepository {
     @Autowired
