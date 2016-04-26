@@ -30,7 +30,7 @@ abstract public class BaseForAll {
       body( File file ) が正常に動作しない、 body(String content) を使用する
      */
     public String ofFile(String filename ) {
-        Path path = Paths.get("src","test","java",filename);
+        Path path = Paths.get("src","test","resources","data",filename);
 
         List<String> lines;
         try {
