@@ -1,4 +1,4 @@
-package テスト;
+package integration;
 
 import org.apache.http.HttpStatus;
 import org.junit.Test;

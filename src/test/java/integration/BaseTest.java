@@ -1,4 +1,4 @@
-package テスト;
+package integration;
 
 import com.jayway.restassured.RestAssured;
 import example.Application;

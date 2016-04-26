@@ -1,3 +1,3 @@
 # REST API サンプル
 
-## End to End テスト
+## End to End integration

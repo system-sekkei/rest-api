@@ -1,4 +1,4 @@
-package テスト;
+package integration;
 
 import example.Application;
 import com.jayway.restassured.RestAssured;
@@ -6,7 +6,6 @@ import org.apache.http.HttpStatus;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.TestRestTemplate;
