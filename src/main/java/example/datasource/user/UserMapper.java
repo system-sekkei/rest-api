@@ -7,9 +7,6 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-/**
- * Created by haljik on 15/06/04.
- */
 public interface UserMapper {
 
     User findBy(@Param("identifier") UserIdentifier id);

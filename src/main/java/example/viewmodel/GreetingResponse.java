@@ -1,6 +1,6 @@
 package example.viewmodel;
 
-import example.model.Greeting;
+import example.model.greeting.Greeting;
 
 public class GreetingResponse {
     public long id ;

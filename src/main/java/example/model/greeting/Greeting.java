@@ -1,4 +1,4 @@
-package example.model;
+package example.model.greeting;
 
 import javax.validation.constraints.NotNull;
 

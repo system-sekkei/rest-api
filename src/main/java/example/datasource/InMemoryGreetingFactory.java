@@ -1,7 +1,7 @@
 package example.datasource;
 
-import example.model.Greeting;
-import example.model.GreetingFactory;
+import example.model.greeting.Greeting;
+import example.model.greeting.GreetingFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.concurrent.atomic.AtomicLong;
