@@ -24,7 +24,7 @@ public class Post extends BaseForAll {
     @Test
     public void PostJsonFromFile() {
 
-        String json = super.ofFile("test.json");
+        String json = super.ofFile("greeting-request.json");
 
         given().log().all().
                 contentType(ContentType.JSON).

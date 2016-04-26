@@ -5,6 +5,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.WebIntegrationTest;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.io.IOException;
@@ -30,7 +32,7 @@ abstract public class BaseForAll {
       body( File file ) が正常に動作しない、 body(String content) を使用する
      */
     public String ofFile(String filename ) {
-        Path path = Paths.get("src","test","resources","data",filename);
+        Path path = getPath(filename);
 
         List<String> lines;
         try {
@@ -45,5 +47,18 @@ abstract public class BaseForAll {
         }
 
         return result.toString();
+    }
+
+    private Path getPath(String filename) {
+
+        String target = "data/" + filename;
+
+        Resource resource = new ClassPathResource(target);
+
+        try {
+            return Paths.get(resource.getURI());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

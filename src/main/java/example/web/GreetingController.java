@@ -26,7 +26,6 @@ public class GreetingController {
 
     @RequestMapping("object")
     public GreetingJSONView greetingOfJson(@RequestBody GreetingRequest request) {
-        System.out.println("request=" + request);
         Greeting greeting =  greetingService.greetTo(request.name());
         return new GreetingJSONView(greeting);
     }
