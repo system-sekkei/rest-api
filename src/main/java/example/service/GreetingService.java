@@ -6,6 +6,8 @@ import example.model.greeting.GreetingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class GreetingService {
 
@@ -23,5 +25,11 @@ public class GreetingService {
         repository.recordRequest(greeting);
     }
 
+    public void printList() {
+        List<Greeting> list = repository.list();
+        for( Greeting greeting : list) {
+            System.out.println(greeting);
+        }
+    }
 
 }
