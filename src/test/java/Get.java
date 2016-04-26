@@ -6,16 +6,16 @@ import static org.hamcrest.CoreMatchers.equalTo;
 
 public class Get extends BaseForAll {
     @Test
-    public void 単純なGET() {
+    public void GETwithParams() {
         given().
                 log().all().
-                param("name", "masuda").
+                param("name", "増田").
         when().
-                get("/greeting").
+                get("/greeting/params").
         then().
                 log().all().
                 statusCode(HttpStatus.SC_OK).
-                body("content", equalTo("Hello, masuda!"))
+                body("content", equalTo("Hello, 増田!"))
         ;
     }
 }

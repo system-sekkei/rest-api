@@ -3,8 +3,10 @@ import example.viewmodel.GreetingRequest;
 import org.apache.http.HttpStatus;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 import static com.jayway.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.*;
 
 public class Post extends BaseForAll {
 
@@ -18,7 +20,7 @@ public class Post extends BaseForAll {
         then().
         log().all().
         statusCode(HttpStatus.SC_OK).
-        body("content", equalTo("Hello, masuda!"));
+        body("content", equalTo("Hello, masuda!")); // 同じ文字列
     }
 
     @Test
@@ -32,7 +34,8 @@ public class Post extends BaseForAll {
         when().post("/greeting/object").
         then().log().all().
                 statusCode(HttpStatus.SC_OK).
-                body("content", equalTo("Hello, 増田!"));
+                body("content", stringContainsInOrder(Arrays.asList("Hello","増田", "!")));
+        // 文字列が指定した順番で出現する
     }
 
     @Test
@@ -45,6 +48,7 @@ public class Post extends BaseForAll {
                 when().post("/greeting/object").
                 then().log().all().
                 statusCode(HttpStatus.SC_OK).
-                body("content", equalTo("Hello, 増田!"));
+                body("id", greaterThan(0)).
+                body("id", lessThan(10)); // 数値の範囲
     }
 }
