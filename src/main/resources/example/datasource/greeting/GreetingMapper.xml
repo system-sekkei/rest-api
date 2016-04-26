@@ -4,10 +4,10 @@
 
     <insert id="register">
         INSERT INTO greeting.requests (
-          name
+          id, name
         )
         VALUES (
-        #{greeting.greetTo}
+        #{greeting.id},#{greeting.greetTo}
         );
     </insert>
 
