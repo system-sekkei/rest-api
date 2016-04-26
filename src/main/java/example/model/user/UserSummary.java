@@ -11,4 +11,12 @@ public class UserSummary {
     public Name name() {
         return name;
     }
+
+    @Override
+    public String toString() {
+        return "UserSummary{" +
+                "identifier=" + identifier +
+                ", name=" + name +
+                '}';
+    }
 }
