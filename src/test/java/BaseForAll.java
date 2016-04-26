@@ -1,5 +1,3 @@
-package integration;
-
 import com.jayway.restassured.RestAssured;
 import example.Application;
 import org.junit.Before;
@@ -12,7 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = Application.class)
 @WebIntegrationTest
-public class BaseTest {
+abstract public class BaseForAll {
     @Value("${server.port}")
     private int port;
 

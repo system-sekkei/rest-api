@@ -1,18 +1,13 @@
-package integration;
-
 import org.apache.http.HttpStatus;
 import org.junit.Test;
 
 import static com.jayway.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
-/**
- * Created by Masuda on 2016/04/25.
- */
-public class SubTest extends BaseTest{
+public class Post extends BaseForAll {
 
     @Test
-    public void SimplePOST() {
+    public void 単純なPOST() {
         given().
                 log().all().
                 param("name", "masuda").
