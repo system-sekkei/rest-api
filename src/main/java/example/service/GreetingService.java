@@ -17,7 +17,7 @@ public class GreetingService {
     @Autowired
     GreetingRepository repository;
 
-    public Greeting greetTo(String name) {
+    public Greeting generate(String name) {
         return factory.generate(name);
     }
 

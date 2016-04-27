@@ -30,7 +30,7 @@ public class GreetingController {
     }
 
     private GreetingResponse generateGreetingResponse(@RequestParam(value = "name") String name) {
-        Greeting greeting = greetingService.greetTo(name);
+        Greeting greeting = greetingService.generate(name);
         greetingService.recordRequest(greeting);
         return new GreetingResponse(greeting);
     }

@@ -23,4 +23,5 @@ public class GreetingDatasource implements GreetingRepository{
     public List<Greeting> list() {
         return mapper.list();
     }
+
 }

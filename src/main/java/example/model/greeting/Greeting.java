@@ -13,10 +13,6 @@ public class Greeting {
         this.greetTo = greetTo;
     }
 
-    {
-        id = -1L;
-        greetTo = "";
-    }
     public Greeting() {
 
     }
