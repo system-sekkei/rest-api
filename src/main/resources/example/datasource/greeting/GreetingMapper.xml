@@ -10,7 +10,7 @@
     <select id="list" resultMap="greeting">
         SELECT request_id, greet_to
         FROM greeting.requests
-        ORDER BY id;
+        ORDER BY request_id;
     </select>
 
 

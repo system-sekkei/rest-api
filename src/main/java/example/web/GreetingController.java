@@ -4,11 +4,14 @@ import example.model.greeting.Greeting;
 import example.service.GreetingService;
 import example.viewmodel.GreetingResponse;
 import example.viewmodel.GreetingRequest;
+import example.viewmodel.HistoryResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/greeting")
@@ -33,5 +36,12 @@ public class GreetingController {
         Greeting greeting = greetingService.generate(name);
         greetingService.recordRequest(greeting);
         return new GreetingResponse(greeting);
+    }
+
+    @RequestMapping("history")
+    public HistoryResponse history() {
+        List<Greeting> history = greetingService.list();
+
+        return HistoryResponse.from(history);
     }
 }

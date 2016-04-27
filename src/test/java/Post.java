@@ -51,4 +51,14 @@ public class Post extends BaseForAll {
                 body("id", greaterThan(0)).
                 body("id", lessThan(10)); // 数値の範囲
     }
+
+    @Test
+    public void history() {
+
+        given().log().all().
+                when().post("/greeting/history").
+                then().log().all().
+                statusCode(HttpStatus.SC_OK)
+        ;
+    }
 }
