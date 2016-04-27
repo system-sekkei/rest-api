@@ -3,12 +3,12 @@
 <mapper namespace="example.datasource.greeting.GreetingMapper">
 
     <resultMap id="greeting" type="example.model.greeting.Greeting">
-        <id property="id" column="id"/>
-        <result property="greetTo" column="name"/>
+        <id property="id" column="request_id"/>
+        <result property="greetTo" column="greet_to"/>
     </resultMap>
 
     <select id="list" resultMap="greeting">
-        SELECT id, name
+        SELECT request_id, greet_to
         FROM greeting.requests
         ORDER BY id;
     </select>
@@ -16,7 +16,7 @@
 
     <insert id="register">
         INSERT INTO greeting.requests (
-          id, name
+          request_id, greet_to
         )
         VALUES (
         #{greeting.id},#{greeting.greetTo}

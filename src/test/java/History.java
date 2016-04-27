@@ -3,7 +3,7 @@ import org.junit.Test;
 
 import static com.jayway.restassured.RestAssured.given;
 
-public class GetUsers extends BaseForAll{
+public class History extends BaseForAll{
 
     @Test
     public void getAll() {

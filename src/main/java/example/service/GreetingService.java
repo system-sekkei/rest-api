@@ -25,11 +25,8 @@ public class GreetingService {
         repository.recordRequest(greeting);
     }
 
-    public void printList() {
-        List<Greeting> list = repository.list();
-        for( Greeting greeting : list) {
-            System.out.println(greeting);
-        }
+    public List<Greeting> list() {
+        return repository.list();
     }
 
 }

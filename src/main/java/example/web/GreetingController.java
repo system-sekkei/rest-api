@@ -32,7 +32,6 @@ public class GreetingController {
     private GreetingResponse generateGreetingResponse(@RequestParam(value = "name") String name) {
         Greeting greeting = greetingService.greetTo(name);
         greetingService.recordRequest(greeting);
-        greetingService.printList();
         return new GreetingResponse(greeting);
     }
 }
