@@ -2,6 +2,7 @@ package example.service;
 
 import example.model.greeting.Greeting;
 import example.model.greeting.GreetingFactory;
+import example.model.greeting.GreetingHistory;
 import example.model.greeting.GreetingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,8 +26,8 @@ public class GreetingService {
         repository.recordRequest(greeting);
     }
 
-    public List<Greeting> list() {
-        return repository.list();
+    public GreetingHistory history() {
+        return repository.history();
     }
 
 }

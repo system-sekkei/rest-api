@@ -1,6 +1,7 @@
 package example.datasource.greeting;
 
 import example.model.greeting.Greeting;
+import example.model.greeting.GreetingHistory;
 import example.model.greeting.GreetingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -20,8 +21,9 @@ public class GreetingDatasource implements GreetingRepository{
     }
 
     @Override
-    public List<Greeting> list() {
-        return mapper.list();
+    public GreetingHistory history() {
+        List<Greeting> list = mapper.list();
+        return new GreetingHistory(list);
     }
 
 }

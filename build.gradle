@@ -1,4 +1,4 @@
-description 'ドメイン駆動設計によるアプリケーション開発のテンプレート'
+description 'REST APIのサンプル'
 
 buildscript {
     ext {

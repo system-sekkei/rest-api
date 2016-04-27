@@ -1,6 +1,7 @@
 package example.viewmodel;
 
 import example.model.greeting.Greeting;
+import example.model.greeting.GreetingHistory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,11 +14,13 @@ public class HistoryResponse {
         this.history = list;
     }
 
-    static public HistoryResponse from(List<Greeting> list) {
+    static public HistoryResponse from(GreetingHistory history) {
         List<GreetingResponse> result = new ArrayList<>();
-        for( Greeting each : list) {
+        
+        for( Greeting each : history.asList()) {
             result.add(new GreetingResponse(each));
         }
+        
         return new HistoryResponse(result);
     }
 }
