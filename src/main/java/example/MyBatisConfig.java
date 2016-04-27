@@ -10,9 +10,6 @@ import org.springframework.core.io.ClassPathResource;
 
 import javax.sql.DataSource;
 
-/**
- * Created by haljik on 15/06/04.
- */
 @Configuration
 @MapperScan(basePackages = "example.datasource")
 public class MyBatisConfig {
@@ -28,6 +25,8 @@ public class MyBatisConfig {
                 new OffsetDateTimeTypeHandler(),
                 new OffsetTimeTypeHandler(),
                 new ZonedDateTimeTypeHandler()
+                //JSR310 TypeHandler
+                // MyBatis 3.4 で、デフォルトで組み込まれるまでの暫定対応
         });
         sessionFactory.setConfigLocation(new ClassPathResource("mybatis.xml"));
         return sessionFactory.getObject();

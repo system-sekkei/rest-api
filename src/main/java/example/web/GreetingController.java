@@ -1,17 +1,13 @@
 package example.web;
 
 import example.model.greeting.Greeting;
+import example.model.greeting.GreetingHistory;
 import example.service.GreetingService;
 import example.viewmodel.GreetingResponse;
 import example.viewmodel.GreetingRequest;
 import example.viewmodel.HistoryResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/greeting")
@@ -20,13 +16,13 @@ public class GreetingController {
     @Autowired
     GreetingService greetingService;
 
-    @RequestMapping("params")
+    @RequestMapping(method= RequestMethod.GET)
     public GreetingResponse greeting(@RequestParam(value="name") String name) {
         if(name.isEmpty()) throw new IllegalArgumentException("exception");
         return generateGreetingResponse(name);
     }
 
-    @RequestMapping("object")
+    @RequestMapping(method = RequestMethod.POST)
     public GreetingResponse greetingOfJson(@RequestBody GreetingRequest request) {
         String name = request.name();
         return generateGreetingResponse(name);
@@ -40,8 +36,7 @@ public class GreetingController {
 
     @RequestMapping("history")
     public HistoryResponse history() {
-        List<Greeting> history = greetingService.list();
-
+        GreetingHistory history = greetingService.history();
         return HistoryResponse.from(history);
     }
 }

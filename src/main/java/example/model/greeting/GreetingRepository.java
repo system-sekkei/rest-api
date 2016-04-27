@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface GreetingRepository {
     void recordRequest(Greeting greeting);
-    List<Greeting> list();
+    GreetingHistory history();
 }
