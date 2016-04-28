@@ -3,6 +3,7 @@ description 'REST APIのサンプル'
 buildscript {
     ext {
         springBootVersion = '1.3.3.RELEASE'
+        swaggerVersion = '2.4.0'
         encoding = 'UTF-8'
         compatibility = 1.8
     }
@@ -37,6 +38,9 @@ dependencies {
 
     compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
     compile("com.jayway.restassured:rest-assured:2.9.0")
+
+    compile("io.springfox:springfox-swagger2:${swaggerVersion}")
+    compile("io.springfox:springfox-swagger-ui:${swaggerVersion}")
 
     compile("org.springframework.boot:spring-boot-starter-jdbc:${springBootVersion}")
     compile("org.mybatis:mybatis:3.3.1")
