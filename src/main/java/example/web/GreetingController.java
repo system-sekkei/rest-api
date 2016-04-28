@@ -34,7 +34,7 @@ public class GreetingController {
         return new GreetingResponse(greeting);
     }
 
-    @RequestMapping("history")
+    @RequestMapping(value = "history", method = RequestMethod.POST)
     public HistoryResponse history() {
         GreetingHistory history = greetingService.history();
         return HistoryResponse.from(history);
