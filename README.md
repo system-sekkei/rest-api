@@ -1,8 +1,8 @@
 # REST API サンプル
 
-2016-4-29
+## 2016-4-29 リリースノート
 
-* Swaggerを使った API ドキュメント生成／画面からのテストツール
+* Swaggerを使った API ドキュメント生成／画面からのテストツールを組み込み
 * http://localhost:8080/swagger_ui.html で Swagger UI を表示
 
 2016-4-27
