@@ -5,7 +5,7 @@
 * Swaggerを使った API ドキュメント生成／画面からのテストツールを組み込み
 * http://localhost:8080/swagger_ui.html で Swagger UI を表示
 
-2016-4-27
+## 2016-4-27 リリース
 
 ## 概要
 
