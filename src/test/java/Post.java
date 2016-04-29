@@ -1,5 +1,5 @@
 import com.jayway.restassured.http.ContentType;
-import example.viewmodel.GreetingRequest;
+import example.transfer.model.GreetingRequest;
 import org.apache.http.HttpStatus;
 import org.junit.Test;
 

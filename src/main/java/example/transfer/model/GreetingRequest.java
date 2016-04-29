@@ -1,4 +1,4 @@
-package example.viewmodel;
+package example.transfer.model;
 
 public class GreetingRequest {
     public String name ;
