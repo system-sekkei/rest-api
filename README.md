@@ -1,5 +1,10 @@
 # REST API サンプル
 
+2016-4-29
+
+* Swaggerを使った API ドキュメント生成／画面からのテストツール
+* http://localhost:8080/swagger_ui.html で Swagger UI を表示
+
 2016-4-27
 
 ## 概要
@@ -31,3 +36,9 @@ gradle test タスクまたは、IntelliJ Idea の Run テスト
 
 ###参考ドキュメント
 [REST Assured Usage](https://github.com/jayway/rest-assured/wiki/Usage)
+
+##実行方法
+###アプリケーション起動
+./gradlew clean bootRun
+###テスト
+./gradlew test
