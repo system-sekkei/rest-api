@@ -1,6 +1,6 @@
 package example.web;
 
-import example.viewmodel.MissingError;
+import example.transfer.model.MissingError;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

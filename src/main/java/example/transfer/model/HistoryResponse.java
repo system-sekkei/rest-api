@@ -1,4 +1,4 @@
-package example.viewmodel;
+package example.transfer.model;
 
 import example.model.greeting.Greeting;
 import example.model.greeting.GreetingHistory;
