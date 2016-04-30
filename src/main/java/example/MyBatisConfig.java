@@ -18,16 +18,7 @@ public class MyBatisConfig {
     public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
         final SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
         sessionFactory.setDataSource(dataSource);
-        sessionFactory.setTypeHandlers(new TypeHandler[]{
-                new InstantTypeHandler(),
-                new LocalDateTimeTypeHandler(),
-                new LocalDateTypeHandler(),
-                new OffsetDateTimeTypeHandler(),
-                new OffsetTimeTypeHandler(),
-                new ZonedDateTimeTypeHandler()
-                //JSR310 TypeHandler
-                // MyBatis 3.4 で、デフォルトで組み込まれるまでの暫定対応
-        });
+
         sessionFactory.setConfigLocation(new ClassPathResource("mybatis.xml"));
         return sessionFactory.getObject();
     }
