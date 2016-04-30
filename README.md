@@ -3,7 +3,7 @@
 ## 2016-4-29 リリースノート
 
 * Swaggerを使った API ドキュメント生成／画面からのテストツールを組み込み
-* http://localhost:8080/swagger_ui.html で Swagger UI を表示
+* API ドキュメントの表示 http://localhost:8080/swagger_ui.html
 
 ## 2016-4-27 リリース
 
@@ -40,5 +40,8 @@ gradle test タスクまたは、IntelliJ Idea の Run テスト
 ##実行方法
 ###アプリケーション起動
 ./gradlew clean bootRun
+
+http://localhost:8080/greeting?name=masuda
+JSON POST での実行方法は、API ドキュメントを参照
 ###テスト
 ./gradlew test
