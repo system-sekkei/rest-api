@@ -1,5 +1,11 @@
 # REST API サンプル
+gradle based Spring Boot &amp; @RestController &amp;  Swagger2 &amp;  Rest-Assured &amp; MyBatis template project
 
+## 2016-5-1 リリースノート
+
+* パッケージの意図を明確に
+* パッケージ構造の整理と package-info.java の加筆修正
+* 未使用でも、標準的なパッケージを追加
 ## 2016-4-29 リリースノート
 
 * Swaggerを使った API ドキュメント生成／画面からのテストツールを組み込み

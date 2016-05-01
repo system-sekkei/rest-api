@@ -47,8 +47,9 @@ dependencies {
     runtime("com.h2database:h2:1.4.187")
     compile("org.springframework.boot:spring-boot-devtools") // for h2-console
 
-    testCompile("junit:junit")
     testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
+
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf:${springBootVersion}")
 
 }
 
