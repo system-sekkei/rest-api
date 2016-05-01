@@ -1,0 +1,29 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>REST API サンプル</title>
+</head>
+<body>
+<h1>REST API サンプル アプリケーション</h1>
+<h2>概要</h2>
+<p>　 REST API のサンプル。</p>
+<h2>利用技術</h2>
+<h3>API ドキュメント＆会話型テストツール：Swagger2</h3>
+<p>
+    <a th:href="@{/swagger-ui.html}" target="swagger-ui">API ドキュメント＆テスト画面</a>
+</p>
+<h3>自動テスト：Rest-Assured</h3>
+    <p>Spring @WebIntegrationTest と組み合わせた End to End (API 通信 to データベース)テスト</p>
+<h3>データベース:H2 Database</h3>
+<p>
+    インメモリのテスト用データベース
+</p>
+<p>
+    <a th:href="@{/h2-console}" target="h2-console">コンソール画面</a>
+</p>
+<p>
+    接続文字列：jdbc:h2:mem:testdb
+</p>
+</body>
+</html>
