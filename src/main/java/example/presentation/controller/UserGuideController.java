@@ -5,15 +5,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/")
-public class HomeController {
+public class UserGuideController {
 
     @RequestMapping
     public String top() {
-        return "redirect:home";
+        return "redirect:userguide";
     }
-    @RequestMapping("home")
-    public String home() {
-        System.out.println("now home");
-        return "home";
+
+    @RequestMapping("userguide")
+    public String userguide() {
+        return "userguide";
     }
 }

@@ -1,4 +1,4 @@
-package example.presentation.view;
+package example.presentation.view.greeting;
 
 import example.domain.model.greeting.Greeting;
 import example.domain.model.greeting.GreetingHistory;

@@ -1,4 +1,4 @@
-package example.presentation.view;
+package example.presentation.view.greeting;
 
 public class GreetingRequest {
     public String name ;
