@@ -20,7 +20,7 @@ import java.util.List;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = Application.class)
 @WebIntegrationTest
-abstract public class BaseForAll {
+abstract public class BaseTest {
     @Value("${server.port}")
     private int port;
 

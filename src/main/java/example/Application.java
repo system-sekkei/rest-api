@@ -30,7 +30,7 @@ public class Application {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("API ドキュメント by Swagger")
+                .title("API ドキュメント by Swagger2")
                 .description("Spring REST Sample with Swagger")
                 .build();
     }

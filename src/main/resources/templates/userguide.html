@@ -1,0 +1,115 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>REST API サンプル実装 ユーザガイド</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container">
+
+    <h1>REST API サンプル実装 ユーザガイド</h1>
+    <div class="row">
+        <h2>目次</h2>
+        <ol>
+            <li><a href="#swagger">API ドキュメントの自動生成</a></li>
+            <li><a href="#database">データベースコンソール</a></li>
+            <li><a href="#rest-assured">テストの記述と実行</a></li>
+            <li><a href="#layout">パッケージ構成</a></li>
+            <li><a href="#binding">データバインディング</a></li>
+            <li><a href="#errors">エラー処理</a></li>
+
+        </ol>
+    </div>
+
+    <div  id="swagger" class="row">
+        <h2>API ドキュメントの自動生成</h2>
+        <p>
+            Swagger2 を使った API ドキュメントの自動生成。APIドキュメントの中から試しにAPI を実行できる。
+        </p>
+        <p>ドキュメントに表示する名前や説明は、@RestController クラスに Swaggerアノテーションを追加する（オプション。何を記述しなくても、基本の内容は表示される）</p>
+        <p class="h4">
+            <a th:href="@{/swagger-ui.html}" target="swagger-ui">API ドキュメント＆テスト画面を開く</a>
+        </p>
+    </div>
+
+    <div id="database" class="row">
+        <h2>データベースコンソール</h2>
+        <p>
+            インメモリの H2 Database のコンソールを使って、データベース内容を確認できる。
+        </p>
+        <p class="h4">
+            <a th:href="@{/h2-console}" target="h2-console">コンソール画面を開く</a>
+        </p>
+        <p>
+            接続文字列：jdbc:h2:mem:testdb
+        </p>
+    </div>
+    <div  id="rest-assured" class="row">
+        <h2>テストの記述と実行</h2>
+        <p>Rest-Assured を使って、テスト使用を記述。</p>
+        <p>Spring @WebIntegrationTest を使って End to End (API 通信 to データベース)テストを自動実行。</p>
+    </div>
+
+    <div id="layout" class="row">
+        <h2>パッケージ構成</h2>
+        <dl class="dl-horizontal">
+            <dt>Application.java</dt><dd>Spring Boot Application</dd>
+            <dt>application</dt>
+            <dd>アプリケーション層
+                <dl>
+                    <dt>service</dt>
+                    <dd>サービス部品(機能部品)</dd>
+                    <dt>usecase</dt>
+                    <dd>サービス部品を組み合わせたユースケース記述</dd>
+                </dl>
+            </dd>
+            <dt>domain</dt>
+            <dd>ドメイン層
+                <dl>
+                    <dt>fundamentals</dt><dd>モデルの基礎部品</dd>
+                    <dt>model</dt><dd>モデル</dd>
+                </dl>
+            </dd>
+            <dt>infrastructure</dt>
+            <dd>基盤層
+                <dl>
+                    <dt>datasource</dt><dd>データベースアクセス</dd>
+                    <dt>transfer</dt><dd>通信</dd>
+                </dl>
+            </dd>
+            <dt>presentation</dt>
+            <dd>プレゼンテーション層
+                <dl>
+                    <dt>controller</dt><dd>コントローラ群</dd>
+                    <dt>view</dt><dd>ビュー記述(JSON-Objectマッピング)</dd>
+                </dl>
+            </dd>
+        </dl>
+    </div>
+
+    <div  id="binding" class="row">
+        <h2>データバインディング</h2>
+        <p>バインディング対象のフィールドは、public宣言にする。(getter/setterを書かない)</p>
+        <p>public なフィールドは、getter/setter がなくても、JSON⇔Objectマッピングをフレームワークが実行する。</p>
+        <p>GET時のバインディングは、@RequestMappingメソッドの引数に @ModelAttribute @Validated Target target の形式で宣言する。</p>
+        <p>Spring DataBinder は、デフォルトでは、getter/setter が必要。JSONマッピング用の publicフィールド方式と合わせるために、@InitBinder で、ダイレクトフィールドアクセスを true にする。 ( BinderAdvice を参照のこと）</p>
+    </div>
+
+    <div  id="errors" class="row">
+        <h2>エラー処理</h2>
+        <p>すべて「例外」として扱う。</p>
+        <p> プレゼンテーション層　controller パッケージの、ExceptionAdvice クラスを参照のこと。</p>
+        <p>エラー情報の JSONマッピングは、view/errors パッケージを参照のこと。</p>
+        <p>レスポンスのステータスコードは、次のとおり。</p>
+        <dl>
+            <dt>400</dt><dd>Bad Request</dd>
+            <dt>403</dt><dd>Forbidden(APIキーが正しくない）</dd>
+            <dt>404</dt><dd>Not Found</dd>
+            <dt>500</dt><dd>Internal Server Error(サーバー側の処理でエラーが発生）</dd>
+        </dl>
+    </div>
+</div>
+</body>
+</html>
