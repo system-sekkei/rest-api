@@ -8,14 +8,13 @@ public class GreetingRequest {
 
     @NotBlank
     @Size(min=2)
-    public String name ;
+    String name ;
 
     public GreetingRequest(String name) {
         this.name = name;
     }
 
     public GreetingRequest() {
-
     }
 
     public String name() {
