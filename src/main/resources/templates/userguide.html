@@ -91,10 +91,21 @@
 
     <div  id="binding" class="row">
         <h2>データバインディング</h2>
-        <p>バインディング対象のフィールドは、public宣言にする。(getter/setterを書かない)</p>
-        <p>public なフィールドは、getter/setter がなくても、JSON⇔Objectマッピングをフレームワークが実行する。</p>
+        <p>バインディング用に getter/setter は書かない。（アプリケーション用にもgetter/setterは書かない)</p>
+        <p>オブジェクトへのデータバインディング／マッピングは、「ダイレクトフィールドアクセス」に統一する。</p>
+        <h3>JSON⇔Objectのマッピング</h3>
+        <ul>
+            <li>@RequestBody で、jsonデータを受け取ってオブジェクトにマッピングする場合</li>
+            <li>レスポンスを、オブジェクトから json データにマッピングする場合</li>
+        </ul>
+        <p>JacksonのObjectMapperの設計を、ダイレクトフィールドアクセスに設定する。( CustomObjectMapper クラスを参照のこと)</p>
+        <p>テストフレームワーク Rest-Assuredでも、Jackson ObjectMapper を使っているので、同様の設定にする。</p>
+        <p>フィールドのアクセス可視性はデフォルト（パッケージプライベート）を使う。private フィールドは、ObjectMapper の対象外に設定する。</p>
+        <h3>HTTP Reques⇒オブジェクトのデータバインド</h3>
         <p>GET時のバインディングは、@RequestMappingメソッドの引数に @ModelAttribute @Validated Target target の形式で宣言する。</p>
-        <p>Spring DataBinder は、デフォルトでは、getter/setter が必要。JSONマッピング用の publicフィールド方式と合わせるために、@InitBinder で、ダイレクトフィールドアクセスを true にする。 ( BinderAdvice を参照のこと）</p>
+        <p>Spring DataBinder は、デフォルトでは、getter/setter が必要。ダイレクトフィールドアクセスを有効にする。 ( BinderAdvice を参照のこと）</p>
+        <h3>オブジェクト⇔SQLのマッピング</h3>
+        <p>MyBatisを使用。デフォルト、ダイレクトフィールドアクセスで動作する。</p>
     </div>
 
     <div  id="errors" class="row">

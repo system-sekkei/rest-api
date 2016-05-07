@@ -1,6 +1,10 @@
 # REST API サンプル
 gradle based Spring Boot &amp; @RestController &amp;  Swagger2 &amp;  Rest-Assured &amp; MyBatis template project
 
+## 2016-5-7 リリースノート
+
+* Jackson ObjectMapper フィールドアクセスに設定
+
 ## 2016-5-1 リリースノート
 
 * パッケージの意図を明確に

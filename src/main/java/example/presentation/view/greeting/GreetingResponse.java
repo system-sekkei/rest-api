@@ -3,8 +3,8 @@ package example.presentation.view.greeting;
 import example.domain.model.greeting.Greeting;
 
 public class GreetingResponse {
-    public long id ;
-    public String content;
+    long id ;
+    String content;
 
     public GreetingResponse(Greeting model) {
         id = model.id();

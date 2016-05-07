@@ -8,7 +8,7 @@ import java.util.List;
 
 public class HistoryResponse {
 
-    public List<GreetingResponse> history;
+    List<GreetingResponse> history;
 
     public HistoryResponse(List<GreetingResponse> list) {
         this.history = list;

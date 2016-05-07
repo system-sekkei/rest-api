@@ -1,7 +1,12 @@
 package example;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jayway.restassured.RestAssured;
+import com.jayway.restassured.config.ObjectMapperConfig;
+import com.jayway.restassured.config.RestAssuredConfig;
+import com.jayway.restassured.mapper.factory.Jackson2ObjectMapperFactory;
 import example.Application;
+import example.infrastructure.configuration.objectmapper.CustomObjectMapper;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Value;
@@ -27,6 +32,20 @@ abstract public class BaseTest {
     @Before
     public void setUp() {
         RestAssured.port = port; // http://localhost:PORT を使う
+    }
+
+    @Before
+    public void customObjectMapper() {
+        RestAssured.config = RestAssuredConfig.config()
+                .objectMapperConfig(new ObjectMapperConfig().jackson2ObjectMapperFactory(
+                        new Jackson2ObjectMapperFactory() {
+                            @Override
+                            public ObjectMapper create(Class aClass, String s) {
+                                return new CustomObjectMapper().ofDirectFieldAccess();
+                            }
+                        }
+                        )
+                );
     }
 
     /*
