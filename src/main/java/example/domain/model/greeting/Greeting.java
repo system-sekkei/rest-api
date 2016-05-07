@@ -1,5 +1,7 @@
 package example.domain.model.greeting;
 
+import example.infrastructure.configuration.messagesource.MessageResolver;
+
 import javax.validation.constraints.NotNull;
 
 public class Greeting {
@@ -21,9 +23,8 @@ public class Greeting {
         return id;
     }
 
-    private static final String template = "Hello, %s!";
     public String content() {
-        return String.format(template,greetTo);
+        return MessageResolver.of("example.greeting.hello",greetTo);
     }
 
     @Override

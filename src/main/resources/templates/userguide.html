@@ -19,6 +19,7 @@
             <li><a href="#layout">パッケージ構成</a></li>
             <li><a href="#binding">データバインディング</a></li>
             <li><a href="#errors">エラー処理</a></li>
+            <li><a href="#locale">国際化対応</a></li>
 
         </ol>
     </div>
@@ -121,6 +122,27 @@
             <dt>500</dt><dd>Internal Server Error(サーバー側の処理でエラーが発生）</dd>
         </dl>
     </div>
+
+    <div id="locale" class="row">
+        <h2>国際化対応 i18n</h2>
+        <h3>言語コードの取得と設定</h3>
+        <p>クエリーパラメータ(@RequestParam)に、"lang"で指定した内容を、LocaleContextHolderに設定する。</p>
+        <p>デフォルト ja</p>
+        <p>LocaleAdvice クラスを参照。</p>
+        <h3>メッセージの定義</h3>
+        <p> source/main/resource/i18n 以下に定義ファイルを配置する。</p>
+        <p>定義ファイル名は、basename.properies および 言語ごとの basename_XX.properties </p>
+        <p> basename.properties はデフォルトファイルとして必須。定義はブランクで良い。</p>
+        <p> 日本語は、デフォルトのbasename.properties ではなく、basename_jp.properties として別途定義する。</p>
+        <p>basenameは、複数定義可能。(一つの言語のメッセージを複数に分割管理できる）</p>
+        <p>定義ファイルのパス、名前は、 application.propertiesを参照</p>
+        <p>テスト用の application.propertiesでも同じ設定が必要。</p>
+        <h3>メッセージの参照</h3>
+        <p>MessageResolver.of(String key, Object... args) </p>
+        <p>args は、 Message に指定されたプレースホルダー ( {0},{1}, ...  に対応して指定する。</p>
+        <p>args 指定は、オプション（省略可能）</p>
+    </div>
+
 </div>
 </body>
 </html>

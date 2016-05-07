@@ -35,7 +35,7 @@ public class SwaggerConfig {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("API ドキュメント by Swagger2")
-                .description("Spring REST Sample with Swagger")
+                .description("Spring Boot REST API サンプル実装")
                 .build();
     }
 
