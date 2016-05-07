@@ -5,7 +5,7 @@ import org.springframework.web.context.request.RequestAttributes;
 
 import java.util.Map;
 
-public class CustomeErrorAttributes extends DefaultErrorAttributes {
+public class CustomErrorAttributes extends DefaultErrorAttributes {
 
     @Override
     public Map<String, Object> getErrorAttributes(RequestAttributes requestAttributes,
