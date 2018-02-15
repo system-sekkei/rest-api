@@ -3,7 +3,7 @@
 <mapper namespace="example.infrastructure.datasource.greeting.GreetingMapper">
 
     <resultMap id="greeting" type="example.domain.model.greeting.Greeting">
-        <id property="id" column="request_id"/>
+        <id property="id.value" column="request_id"/>
         <result property="greetTo" column="greet_to"/>
     </resultMap>
 
@@ -19,7 +19,7 @@
           request_id, greet_to
         )
         VALUES (
-        #{greeting.id},#{greeting.greetTo}
+        #{greeting.id.value},#{greeting.greetTo}
         );
     </insert>
 
