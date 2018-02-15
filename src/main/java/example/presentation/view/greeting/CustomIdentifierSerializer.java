@@ -9,13 +9,13 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 
 import java.io.IOException;
 
-public class CustomeIdSerializer extends JsonSerializer<Identifier> {
+public class CustomIdentifierSerializer extends JsonSerializer<Identifier> {
 
     @Override
     public void serialize(
             Identifier value,
             JsonGenerator generator,
             SerializerProvider serializers) throws IOException, JsonProcessingException {
-        generator.writeString(value.format());
-    }
+            generator.writeString(value.format());
+   }
 }

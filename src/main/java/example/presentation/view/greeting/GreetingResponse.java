@@ -6,7 +6,7 @@ import example.domain.model.greeting.Identifier;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 public class GreetingResponse {
-    @JsonSerialize(using = CustomeIdSerializer.class)
+    @JsonSerialize(using = CustomIdentifierSerializer.class)
     Identifier id ;
     String content;
 
