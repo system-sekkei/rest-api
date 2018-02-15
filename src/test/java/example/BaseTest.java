@@ -10,11 +10,14 @@ import example.infrastructure.configuration.objectmapper.CustomObjectMapper;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.boot.test.WebIntegrationTest;
+//import org.springframework.boot.test.SpringApplicationConfiguration;
+//import org.springframework.boot.test.WebIntegrationTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -22,9 +25,17 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = Application.class)
-@WebIntegrationTest
+//FIXME テストクラスのスキャン、ポートの設定
+//BaseTestの拡張というアプローチが良くない？
+@RunWith(SpringRunner.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, properties = {
+        "management.port=0", "management.context-path=/admin" })
+@DirtiesContext
+
+//TODO 旧バージョン 削除する
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@SpringApplicationConfiguration(classes = Application.class)
+//@WebIntegrationTest
 abstract public class BaseTest {
     @Value("${server.port}")
     private int port;
