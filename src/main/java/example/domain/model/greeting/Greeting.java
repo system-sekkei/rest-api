@@ -6,11 +6,11 @@ import javax.validation.constraints.NotNull;
 
 public class Greeting {
 
-    private Long id;
+    private Identifier id;
     private String greetTo;
 
 
-    public Greeting(@NotNull Long id, @NotNull String greetTo) {
+    public Greeting(@NotNull Identifier id, @NotNull String greetTo) {
         this.id = id;
         this.greetTo = greetTo;
     }
@@ -19,7 +19,7 @@ public class Greeting {
 
     }
 
-    public long id() {
+    public Identifier id() {
         return id;
     }
 

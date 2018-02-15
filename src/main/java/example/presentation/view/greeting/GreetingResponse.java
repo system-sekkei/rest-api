@@ -1,9 +1,13 @@
 package example.presentation.view.greeting;
 
 import example.domain.model.greeting.Greeting;
+import example.domain.model.greeting.Identifier;
+
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 public class GreetingResponse {
-    long id ;
+    @JsonSerialize(using = CustomeIdSerializer.class)
+    Identifier id ;
     String content;
 
     public GreetingResponse(Greeting model) {
